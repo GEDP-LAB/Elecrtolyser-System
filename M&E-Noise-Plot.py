@@ -32,6 +32,8 @@ stages = ['Inlet'] + [f'Step {i+1}' for i in range(steps * 2)] + ['After Exchang
 energy_transfer_1 = heat_exchanger_energy_balance(mass_flow_in, specific_heat, temp_in_1, temp_out_1)
 energy_transfer_2 = heat_exchanger_energy_balance(mass_flow_in, specific_heat, temp_in_2, temp_out_2)
 
+# Assuming mass_flow_out_2 is the same as mass_flow_in since there's no mass loss
+mass_flow_out_2 = mass_flow_in
 material_balance_correct = heat_exchanger_material_balance(mass_flow_in, mass_flow_out_2)
 
 plt.figure(figsize=(12, 6))
